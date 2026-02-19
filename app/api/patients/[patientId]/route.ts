@@ -11,9 +11,12 @@ export async function DELETE(
 ) {
 	try {
 		const { patientId } = await params;
-		const response = await fetch(`${BACKEND_API_URL}/api/patients/${patientId}`, {
-			method: "DELETE",
-		});
+		const response = await fetch(
+			`${BACKEND_API_URL}/api/patients/${patientId}`,
+			{
+				method: "DELETE",
+			},
+		);
 
 		if (!response.ok) {
 			return NextResponse.json(

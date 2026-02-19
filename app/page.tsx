@@ -15,7 +15,9 @@ export default function Home() {
 	const [patients, setPatients] = useState<Patient[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
-	const [deletingPatientId, setDeletingPatientId] = useState<string | null>(null);
+	const [deletingPatientId, setDeletingPatientId] = useState<string | null>(
+		null,
+	);
 
 	useEffect(() => {
 		const fetchPatients = async () => {

@@ -93,7 +93,9 @@ export default function AddPatientPage() {
 				</button>
 			</form>
 
-			{success && <p className="text-green-600 dark:text-green-400">{success}</p>}
+			{success && (
+				<p className="text-green-600 dark:text-green-400">{success}</p>
+			)}
 			{error && <p className="text-red-600 dark:text-red-400">{error}</p>}
 
 			<Link href="/" className="underline underline-offset-4">

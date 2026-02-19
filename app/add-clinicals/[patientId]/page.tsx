@@ -69,7 +69,7 @@ export default function AddClinicalsPage() {
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({
-					"patient": patientId,
+					patient: patientId,
 					componentName,
 					componentValue,
 				}),
@@ -92,7 +92,9 @@ export default function AddClinicalsPage() {
 	return (
 		<main className="mx-auto flex min-h-screen w-full max-w-3xl flex-col gap-6 px-6 py-10">
 			<h1 className="text-3xl font-semibold">Add Clinical Data</h1>
-			<p className="text-zinc-600 dark:text-zinc-400">Patient ID: {patientId}</p>
+			<p className="text-zinc-600 dark:text-zinc-400">
+				Patient ID: {patientId}
+			</p>
 
 			{loading && <p>Loading patient details...</p>}
 			{error && <p>{error}</p>}
@@ -101,7 +103,8 @@ export default function AddClinicalsPage() {
 				<>
 					<div className="flex flex-col gap-2">
 						<p>
-							<span className="font-medium">First Name:</span> {patient.firstName}
+							<span className="font-medium">First Name:</span>{" "}
+							{patient.firstName}
 						</p>
 						<p>
 							<span className="font-medium">Last Name:</span> {patient.lastName}
@@ -147,7 +150,9 @@ export default function AddClinicalsPage() {
 					</form>
 
 					{submitSuccess && (
-						<p className="text-green-600 dark:text-green-400">{submitSuccess}</p>
+						<p className="text-green-600 dark:text-green-400">
+							{submitSuccess}
+						</p>
 					)}
 					{submitError && (
 						<p className="text-red-600 dark:text-red-400">{submitError}</p>

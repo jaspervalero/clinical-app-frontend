@@ -18,9 +18,9 @@ export async function GET() {
 		const patients = Array.isArray(data)
 			? data
 			: typeof data === "object" &&
-				data !== null &&
-				"patients" in data &&
-				Array.isArray(data.patients)
+					data !== null &&
+					"patients" in data &&
+					Array.isArray(data.patients)
 				? data.patients
 				: [];
 
