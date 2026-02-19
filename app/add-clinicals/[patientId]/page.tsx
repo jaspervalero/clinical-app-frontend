@@ -63,7 +63,7 @@ export default function AddClinicalsPage() {
 		setIsSubmitting(true);
 
 		try {
-			const response = await fetch("http://localhost:8000/api/clinicals", {
+			const response = await fetch("/api/clinicals", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

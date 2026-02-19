@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
+import { BACKEND_API_URL } from "@/lib/backend";
 
 export async function GET() {
 	try {
-		const response = await fetch("http://localhost:8000/api/patients", {
+		const response = await fetch(`${BACKEND_API_URL}/api/patients`, {
 			cache: "no-store",
 		});
 
@@ -24,6 +25,34 @@ export async function GET() {
 				: [];
 
 		return NextResponse.json({ patients });
+	} catch {
+		return NextResponse.json(
+			{ error: "Backend service is unavailable." },
+			{ status: 503 },
+		);
+	}
+}
+
+export async function POST(request: Request) {
+	try {
+		const body: unknown = await request.json();
+		const response = await fetch(`${BACKEND_API_URL}/api/patients`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(body),
+		});
+
+		if (!response.ok) {
+			return NextResponse.json(
+				{ error: "Unable to create patient in backend." },
+				{ status: response.status },
+			);
+		}
+
+		const responseBody: unknown = await response.json().catch(() => null);
+		return NextResponse.json(responseBody, { status: response.status });
 	} catch {
 		return NextResponse.json(
 			{ error: "Backend service is unavailable." },

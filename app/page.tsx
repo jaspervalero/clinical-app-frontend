@@ -42,12 +42,9 @@ export default function Home() {
 		setDeletingPatientId(patientId);
 
 		try {
-			const response = await fetch(
-				`http://localhost:8000/api/patients/${patientId}`,
-				{
-					method: "DELETE",
-				},
-			);
+			const response = await fetch(`/api/patients/${patientId}`, {
+				method: "DELETE",
+			});
 
 			if (!response.ok) {
 				throw new Error("Unable to delete patient.");
