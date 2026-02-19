@@ -50,12 +50,6 @@ export default function Home() {
 				<Link href="/add-patient" className="underline underline-offset-4">
 					Add Patient
 				</Link>
-				<Link
-					href="/add-clinicals/patient-123"
-					className="underline underline-offset-4"
-				>
-					Add Clinicals (patient ID: patient-123)
-				</Link>
 			</nav>
 
 			<section className="mt-4">
@@ -76,6 +70,9 @@ export default function Home() {
 								<th className="border border-zinc-300 px-3 py-2 dark:border-zinc-700">
 									Age
 								</th>
+								<th className="border border-zinc-300 px-3 py-2 dark:border-zinc-700">
+									Actions
+								</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -89,6 +86,14 @@ export default function Home() {
 									</td>
 									<td className="border border-zinc-300 px-3 py-2 dark:border-zinc-700">
 										{patient.age}
+									</td>
+									<td className="border border-zinc-300 px-3 py-2 dark:border-zinc-700">
+										<Link
+											href={`/add-clinicals/${patient._id}`}
+											className="underline underline-offset-4"
+										>
+											Add Clinical Data
+										</Link>
 									</td>
 								</tr>
 							))}
