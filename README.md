@@ -1,4 +1,3 @@
-
 # Clinical App Frontend
 
 👉 **[Proof of Work — Hands-on Engineering Leadership](./PROOF-OF-WORK.md)**
